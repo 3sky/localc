@@ -5,10 +5,10 @@ terraform init
 terraform apply -auto-approve
 
 # Run role
-ansible -i inventory.gcp.yaml node  -m include_role -a name=basic-https-server -u kuba -b
+ANSIBLE_HOST_KEY_CHECKING=False ansible -i inventory.gcp.yaml ansible-test-machine  -m include_role -a name=basic-https-server -u kuba -b
 
 # Run test
-ansible-playbook -i inventory.gcp.yaml basic-https-server/tests/test.yml
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory.gcp.yaml basic-https-server/tests/test.yml
 
 # Delete Infra after tests
 terraform destroy -auto-approve

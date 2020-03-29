@@ -14,7 +14,7 @@ provider "google" {
 // A single Google Cloud Engine instance
 resource "google_compute_instance" "ansible-test-machine" {
  count = 1
- name         = "node"
+ name         = "ansible-test-machine"
  machine_type = "e2-medium"
  zone         = local.region_eu
 
@@ -35,17 +35,6 @@ resource "google_compute_instance" "ansible-test-machine" {
    access_config {
      // Include this section to give the VM an external ip address
    }
- }
-}
-
-
-resource "google_compute_firewall" "default" {
- name    = "app-firewall"
- network = "default"
-
- allow {
-   protocol = "tcp"
-   ports    = ["80"]
  }
 }
 

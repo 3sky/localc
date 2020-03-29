@@ -122,6 +122,19 @@ series = ["Ansible"]
     sudo apt install ansible
     ```
 
+    ```bash
+    sudo apt-get install python-pip
+    pip install requests google-auth
+
+    # /etc/ansible/ansible.cfg
+    [inventory]
+    enable_plugins = gcp_compute
+
+    mkdir ansible
+    cd ansible
+    ```
+
+
 1. Check installation
 
     ```bash

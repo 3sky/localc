@@ -1,5 +1,5 @@
 ---
-- hosts: node
+- hosts: ansible-test-machine
   remote_user: kuba
   tasks:
 

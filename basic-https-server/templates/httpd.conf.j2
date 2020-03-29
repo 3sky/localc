@@ -96,3 +96,11 @@ EnableSendfile on
 
 # Supplemental configuration
 IncludeOptional conf.d/*.conf
+
+# add Apache’s Mod_Expires
+LoadModule expires_module modules/mod_expires.so
+
+<IfModule mod_expires.c>
+        ExpiresActive On
+        ExpiresDefault "access plus 1 day"
+</IfModule></pre>
