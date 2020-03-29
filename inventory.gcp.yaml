@@ -1,0 +1,5 @@
+plugin: gcp_compute
+projects:
+  - my-small-gcp-project
+auth_kind: serviceaccount
+service_account_file: ./auth.json

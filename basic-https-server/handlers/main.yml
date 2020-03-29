@@ -1,0 +1,13 @@
+---
+# handlers file for basic-https-server
+
+- name: restart httpd
+  service:
+    name: httpd
+    state: restarted
+
+- name: start httpd
+  service:
+    name: httpd
+    state: started
+    enabled: true

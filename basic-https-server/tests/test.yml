@@ -1,0 +1,26 @@
+---
+- hosts: node
+  remote_user: kuba
+  tasks:
+
+  - name: Check OS family
+    assert: { that: "ansible_os_family == 'RedHat'" }
+
+  - stat:
+      path: /etc/httpd/conf/httpd.conf
+    register: httpd
+
+  - stat:
+      path: /etc/httpd/conf.d/ssl.conf
+    register: ssl
+
+  - assert:
+      that:
+        - httpd.stat.exists
+        - ssl.stat.exists
+
+  - name: populate service facts
+    service_facts:
+
+  - assert:
+      that: ansible_facts.services['httpd.service'].state == 'running'
