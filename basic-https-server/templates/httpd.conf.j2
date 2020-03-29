@@ -101,6 +101,8 @@ IncludeOptional conf.d/*.conf
 LoadModule expires_module modules/mod_expires.so
 
 <IfModule mod_expires.c>
-        ExpiresActive On
-        ExpiresDefault "access plus 1 day"
-</IfModule></pre>
+    ExpiresActive On
+    ExpiresByType text/css "access 2 months"
+    ExpiresByType text/html "modification 4 hours"
+    ExpiresDefault "access 2 days"
+</IfModule>
